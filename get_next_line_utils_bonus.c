@@ -6,7 +6,7 @@
 /*   By: ekuchel <ekuchel@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:36:14 by ekuchel           #+#    #+#             */
-/*   Updated: 2023/03/30 11:07:58 by ekuchel          ###   ########.fr       */
+/*   Updated: 2023/03/29 17:14:28 by ekuchel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (i <= (int)ft_strlen(s))
 	{
-		if (((char *)s)[i] == (char)c)
-			return ((char *)s + i);
+		if (((char *)s)[i] == (char) c)
+			return ((char *) s + i);
 		i++;
 	}
 	return (nullptr);
@@ -91,3 +91,30 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	char	*ptr;
+// 	size_t	i;
+
+// 	if (s == NULL)
+// 		return (NULL);
+// 	if (start >= (unsigned int)ft_strlen(s))
+// 	{
+// 		start = 0;
+// 		len = 0;
+// 	}
+// 	if (len > ft_strlen(s) - (size_t)start)
+// 		len = ft_strlen(s) - (size_t)start;
+// 	ptr = (char *)malloc((len + 1) * sizeof(char));
+// 	if (ptr == NULL)
+// 		return (NULL);
+// 	i = 0;
+// 	while (i < len)
+// 	{
+// 		ptr[i] = ((char *)s)[(size_t)start + i];
+// 		i++;
+// 	}
+// 	ptr[i] = '\0';
+// 	return (free((char *)s), ptr);
+// }

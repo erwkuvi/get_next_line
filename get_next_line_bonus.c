@@ -6,11 +6,13 @@
 /*   By: ekuchel <ekuchel@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:41:08 by ekuchel           #+#    #+#             */
-/*   Updated: 2023/03/30 11:17:38 by ekuchel          ###   ########.fr       */
+/*   Updated: 2023/03/29 17:14:37 by ekuchel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+// #include <stdio.h>
+// #include <fcntl.h>
 
 char	*ft_str_storage(int fd, char *strholder)
 {
@@ -26,8 +28,8 @@ char	*ft_str_storage(int fd, char *strholder)
 		nb_read = read(fd, buff, BUFFER_SIZE);
 		if (nb_read == -1)
 		{
-			free(buff);
-			free(strholder);
+			free (buff);
+			free (strholder);
 			return (NULL);
 		}
 		buff[nb_read] = '\0';
@@ -37,7 +39,7 @@ char	*ft_str_storage(int fd, char *strholder)
 		if (ft_strchr(buff, '\n'))
 			break ;
 	}
-	free(buff);
+	free (buff);
 	return (strholder);
 }
 
@@ -79,7 +81,7 @@ char	*ft_new_strholder(char *strholder)
 		i++;
 	if (!strholder[i])
 	{
-		free(strholder);
+		free (strholder);
 		return (NULL);
 	}
 	newline = malloc((ft_strlen(strholder) - i + 1) * sizeof(*newline));
@@ -87,8 +89,7 @@ char	*ft_new_strholder(char *strholder)
 		return (NULL);
 	i++;
 	newline = ft_strcpy(newline, &strholder[i]);
-	free(strholder);
-	return (newline);
+	return (free (strholder), newline);
 }
 
 char	*get_next_line(int fd)
@@ -100,10 +101,7 @@ char	*get_next_line(int fd)
 		return (0);
 	strholder[fd] = ft_str_storage(fd, strholder[fd]);
 	if (!strholder[fd])
-	{
-		free(strholder[fd]);
-		return (NULL);
-	}
+		return (free (strholder[fd]), NULL);
 	line = ft_substraction(strholder[fd]);
 	strholder[fd] = ft_new_strholder(strholder[fd]);
 	return (line);
