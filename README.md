@@ -23,26 +23,26 @@ Implement the function:
 ## **Key Concepts & Challenges**
 
 ### File Handling & Read Function
-Uses the read() system call to fetch data from the file descriptor.
 
-Reads BUFFER_SIZE bytes at a time and processes them accordingly.
+- Uses the read() system call to fetch data from the file descriptor.
+- Reads BUFFER_SIZE bytes at a time and processes them accordingly.
 
 ### Dynamic Memory Allocation
-Uses malloc() to create dynamic strings.
 
-Must properly free allocated memory to avoid leaks.
+- Uses malloc() to create dynamic strings.
+- Must properly free allocated memory to avoid leaks.
 
 ### Static Variables & Persistent Storage
-A static variable stores leftover data between function calls.
 
-Helps in reading a file incrementally rather than all at once.
+- A static variable stores leftover data between function calls.
+- Helps in reading a file incrementally rather than all at once.
 
 ### String Manipulation
-Needs functions like strjoin(), strlen(), strchr(), and strdup().
 
-Splits data into separate lines efficiently.
+- Needs functions like strjoin(), strlen(), strchr(), and strdup().
+- Splits data into separate lines efficiently.
 
 ### Handling Multiple File Descriptors
-The function must handle multiple file descriptors (fd) independently.
 
-Uses an array of static variables, indexed by fd.
+- The function must handle multiple file descriptors (fd) independently.
+- Uses an array of static variables, indexed by fd.
